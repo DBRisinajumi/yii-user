@@ -8,7 +8,6 @@ $this->menu=array(
     array('label'=>UserModule::t('List User'), 'url'=>array('index')),
 );
 ?>
-<h1><?php echo UserModule::t('View User').' "'.$model->username.'"'; ?></h1>
 <?php 
 
 // For all users
