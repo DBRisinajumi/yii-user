@@ -5,8 +5,6 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1><?php echo UserModule::t("Login"); ?></h1>
-
 <?php if(Yii::app()->user->hasFlash('loginMessage')): ?>
 
 <div class="success">
