@@ -35,7 +35,7 @@ $this->menu=array(
 		if ($profileFields) {
 			foreach($profileFields as $field) {
 			?>
-	<div class="row">
+	<div class="row-fluid">
 		<?php echo $form->labelEx($profile,$field->varname);
 		
 		if ($widgetEdit = $field->widgetEdit($profile)) {
@@ -53,19 +53,19 @@ $this->menu=array(
 			}
 		}
 ?>
-	<div class="row">
+	<div class="row-fluid">
 		<?php echo $form->labelEx($model,'username'); ?>
 		<?php echo $form->textField($model,'username',array('size'=>20,'maxlength'=>20)); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
-	<div class="row">
+	<div class="row-fluid">
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
-	<div class="row buttons">
+	<div class="row-fluid buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? UserModule::t('Create') : UserModule::t('Save')); ?>
 	</div>
 
