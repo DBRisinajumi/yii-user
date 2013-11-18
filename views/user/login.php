@@ -24,28 +24,28 @@ $this->breadcrumbs=array(
 	
 	<?php echo CHtml::errorSummary($model); ?>
 	
-	<div class="row">
+	<div class="row-fluid">
 		<?php echo CHtml::activeLabelEx($model,'username'); ?>
 		<?php echo CHtml::activeTextField($model,'username') ?>
 	</div>
 	
-	<div class="row">
+	<div class="row-fluid">
 		<?php echo CHtml::activeLabelEx($model,'password'); ?>
 		<?php echo CHtml::activePasswordField($model,'password') ?>
 	</div>
 	
-	<div class="row">
+	<div class="row-fluid">
 		<p class="hint">
 		<?php echo CHtml::link(UserModule::t("Register"),Yii::app()->getModule('user')->registrationUrl); ?> | <?php echo CHtml::link(UserModule::t("Lost Password?"),Yii::app()->getModule('user')->recoveryUrl); ?>
 		</p>
 	</div>
 	
-	<div class="row rememberMe">
+	<div class="row-fluid rememberMe">
 		<?php echo CHtml::activeCheckBox($model,'rememberMe'); ?>
 		<?php echo CHtml::activeLabelEx($model,'rememberMe'); ?>
 	</div>
 
-	<div class="row submit">
+	<div class="row-fluid submit">
 		<?php echo CHtml::submitButton(UserModule::t("Login")); ?>
 	</div>
 	

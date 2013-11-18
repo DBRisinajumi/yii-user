@@ -28,13 +28,13 @@ $this->menu=array(
 	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
 	<?php echo $form->errorSummary($model); ?>
 	
-	<div class="row">
+	<div class="row-fluid">
 	<?php echo $form->labelEx($model,'oldPassword'); ?>
 	<?php echo $form->passwordField($model,'oldPassword'); ?>
 	<?php echo $form->error($model,'oldPassword'); ?>
 	</div>
 	
-	<div class="row">
+	<div class="row-fluid">
 	<?php echo $form->labelEx($model,'password'); ?>
 	<?php echo $form->passwordField($model,'password'); ?>
 	<?php echo $form->error($model,'password'); ?>
@@ -43,14 +43,14 @@ $this->menu=array(
 	</p>
 	</div>
 	
-	<div class="row">
+	<div class="row-fluid">
 	<?php echo $form->labelEx($model,'verifyPassword'); ?>
 	<?php echo $form->passwordField($model,'verifyPassword'); ?>
 	<?php echo $form->error($model,'verifyPassword'); ?>
 	</div>
 	
 	
-	<div class="row submit">
+	<div class="row-fluid submit">
 	<?php echo CHtml::submitButton(UserModule::t("Save")); ?>
 	</div>
 
