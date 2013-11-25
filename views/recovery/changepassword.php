@@ -7,29 +7,31 @@ $this->breadcrumbs=array(
 
 
 
-<div class="form">
-<?php echo CHtml::beginForm(); ?>
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm'); ?>
 
-	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
-	<?php echo CHtml::errorSummary($form); ?>
+	<?php echo $form->errorSummary($model); ?>
 	
 	<div class="row-fluid">
-	<?php echo CHtml::activeLabelEx($form,'password'); ?>
-	<?php echo CHtml::activePasswordField($form,'password'); ?>
-	<p class="hint">
+	<?php echo $form->passwordFieldRow($model,'password'); ?>
+	<p class="help-block">
 	<?php echo UserModule::t("Minimal password length 4 symbols."); ?>
 	</p>
 	</div>
 	
 	<div class="row-fluid">
-	<?php echo CHtml::activeLabelEx($form,'verifyPassword'); ?>
-	<?php echo CHtml::activePasswordField($form,'verifyPassword'); ?>
+	<?php echo $form->passwordFieldRow($model,'verifyPassword'); ?>
 	</div>
 	
 	
 	<div class="row-fluid submit">
-	<?php echo CHtml::submitButton(UserModule::t("Save")); ?>
+          <?php 
+                $this->widget('bootstrap.widgets.TbButton',array(
+                    'label' => UserModule::t("Save"),
+                    'type' => 'primary',
+                    'buttonType' => 'submit',
+                    'size' => 'medium'
+                ));
+            ?>
 	</div>
 
-<?php echo CHtml::endForm(); ?>
-</div><!-- form -->
+<?php $this->endWidget(); ?>

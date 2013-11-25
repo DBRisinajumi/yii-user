@@ -11,17 +11,17 @@ $this->breadcrumbs=array(
 <?php else: ?>
 
 <div class="form">
-<?php $form=$this->beginWidget('UActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'registration-form',
 	'enableAjaxValidation'=>true,
-	'disableAjaxValidationAttributes'=>array('RegistrationForm_verifyCode'),
+	//'disableAjaxValidationAttributes'=>array('RegistrationForm_verifyCode'),
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
 	'htmlOptions' => array('enctype'=>'multipart/form-data'),
 )); ?>
 
-	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
+	<p class="help-block"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
 	
 	<?php echo $form->errorSummary(array($model,$profile)); ?>
 	
@@ -35,7 +35,7 @@ $this->breadcrumbs=array(
 	<?php echo $form->labelEx($model,'password'); ?>
 	<?php echo $form->passwordField($model,'password'); ?>
 	<?php echo $form->error($model,'password'); ?>
-	<p class="hint">
+	<p class="help-block">
 	<?php echo UserModule::t("Minimal password length 4 symbols."); ?>
 	</p>
 	</div>
@@ -84,13 +84,20 @@ $this->breadcrumbs=array(
 		<?php echo $form->textField($model,'verifyCode'); ?>
 		<?php echo $form->error($model,'verifyCode'); ?>
 		
-		<p class="hint"><?php echo UserModule::t("Please enter the letters as they are shown in the image above."); ?>
+		<p class="help-block"><?php echo UserModule::t("Please enter the letters as they are shown in the image above."); ?>
 		<br/><?php echo UserModule::t("Letters are not case-sensitive."); ?></p>
 	</div>
 	<?php endif; ?>
 	
 	<div class="row-fluid submit">
-		<?php echo CHtml::submitButton(UserModule::t("Register")); ?>
+            <?php
+                $this->widget('bootstrap.widgets.TbButton',array(
+                    'label' => UserModule::t("Register"),
+                    'type' => 'primary',
+                    'buttonType' => 'submit',
+                    'size' => 'medium'
+                ));
+            ?>
 	</div>
 
 <?php $this->endWidget(); ?>

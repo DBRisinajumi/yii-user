@@ -6,26 +6,30 @@ $this->breadcrumbs=array(
 ?>
 
 <?php if(Yii::app()->user->hasFlash('recoveryMessage')): ?>
-<div class="success">
+<div class="alert alert-success">
 <?php echo Yii::app()->user->getFlash('recoveryMessage'); ?>
 </div>
 <?php else: ?>
 
-<div class="form">
-<?php echo CHtml::beginForm(); ?>
+<?php $model = $form; $form=$this->beginWidget('bootstrap.widgets.TbActiveForm'); ?>
 
-	<?php echo CHtml::errorSummary($form); ?>
+	<?php echo $form->errorSummary($model); ?>
 	
 	<div class="row-fluid">
-		<?php echo CHtml::activeLabel($form,'login_or_email'); ?>
-		<?php echo CHtml::activeTextField($form,'login_or_email') ?>
-		<p class="hint"><?php echo UserModule::t("Please enter your login or email addres."); ?></p>
+		<?php echo $form->textField($model,'login_or_email') ?>
+		<p class="help-block"><?php echo UserModule::t("Please enter your login or email addres."); ?></p>
 	</div>
 	
 	<div class="row-fluid submit">
-		<?php echo CHtml::submitButton(UserModule::t("Restore")); ?>
+            <?php
+                $this->widget('bootstrap.widgets.TbButton',array(
+                    'label' => UserModule::t("Restore"),
+                    'type' => 'primary',
+                    'buttonType' => 'submit',
+                    'size' => 'medium'
+                ));
+            ?>
 	</div>
 
-<?php echo CHtml::endForm(); ?>
-</div><!-- form -->
+<?php $this->endWidget(); ?>
 <?php endif; ?>
