@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 <?php if(Yii::app()->user->hasFlash('loginMessage')): ?>
 
-<div class="success">
+<div class="alert alert-success">
 	<?php echo Yii::app()->user->getFlash('loginMessage'); ?>
 </div>
 
@@ -17,40 +17,44 @@ $this->breadcrumbs=array(
 
 <p><?php echo UserModule::t("Please fill out the following form with your login credentials:"); ?></p>
 
-<div class="form">
-<?php echo CHtml::beginForm(); ?>
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+	'id'=>'login-form',
+	'enableAjaxValidation'=>true,
+        'htmlOptions'=>array('class' => 'well',),
+)); ?>
 
-	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
-	
-	<?php echo CHtml::errorSummary($model); ?>
+	<?php echo $form->errorSummary($model); ?>
 	
 	<div class="row-fluid">
-		<?php echo CHtml::activeLabelEx($model,'username'); ?>
-		<?php echo CHtml::activeTextField($model,'username') ?>
+		<?php echo $form->textFieldRow($model,'username') ?>
 	</div>
 	
 	<div class="row-fluid">
-		<?php echo CHtml::activeLabelEx($model,'password'); ?>
-		<?php echo CHtml::activePasswordField($model,'password') ?>
+		<?php echo $form->passwordFieldRow($model,'password') ?>
 	</div>
 	
 	<div class="row-fluid">
-		<p class="hint">
+		<p class="help-block">
 		<?php echo CHtml::link(UserModule::t("Register"),Yii::app()->getModule('user')->registrationUrl); ?> | <?php echo CHtml::link(UserModule::t("Lost Password?"),Yii::app()->getModule('user')->recoveryUrl); ?>
 		</p>
 	</div>
 	
 	<div class="row-fluid rememberMe">
-		<?php echo CHtml::activeCheckBox($model,'rememberMe'); ?>
-		<?php echo CHtml::activeLabelEx($model,'rememberMe'); ?>
+		<?php echo $form->checkBoxRow($model,'rememberMe'); ?>
 	</div>
 
 	<div class="row-fluid submit">
-		<?php echo CHtml::submitButton(UserModule::t("Login")); ?>
+            <?php 
+                $this->widget('bootstrap.widgets.TbButton',array(
+                    'label' => UserModule::t("Login"),
+                    'type' => 'primary',
+                    'buttonType' => 'submit',
+                    'size' => 'medium'
+                ));
+            ?>
 	</div>
 	
-<?php echo CHtml::endForm(); ?>
-</div><!-- form -->
+<?php $this->endWidget(); ?>
 
 
 <?php
