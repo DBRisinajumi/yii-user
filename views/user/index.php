@@ -11,7 +11,7 @@ if(UserModule::isAdmin()) {
 }
 ?>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'dataProvider'=>$dataProvider,
 	'columns'=>array(
 		array(
