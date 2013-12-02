@@ -3,9 +3,12 @@
 class AdminController extends Controller
 {
 	public $defaultAction = 'admin';
-	public $layout='column2';
-	
+		
 	private $_model;
+
+    public function init(){
+        $this->layout = Yii::app()->getModule('user')->layout;
+    }
 
 	/**
 	 * @return array action filters

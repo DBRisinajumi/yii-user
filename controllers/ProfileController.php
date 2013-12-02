@@ -3,12 +3,16 @@
 class ProfileController extends Controller
 {
 	public $defaultAction = 'profile';
-	public $layout='column2';
 
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
 	private $_model;
+
+    public function init(){
+        $this->layout = Yii::app()->getModule('user')->layout;
+    }
+
 	/**
 	 * Shows a particular model.
 	 */

@@ -52,6 +52,12 @@ class UserModule extends CWebModule
 	 */
 	public $autoLogin=true;
 	
+    /**
+     *@var string
+     * @desc layout view script 
+     */
+    public $layout = 'column2';
+
 	public $registrationUrl = array("/user/registration");
 	public $recoveryUrl = array("/user/recovery/recovery");
 	public $loginUrl = array("/user/login");
